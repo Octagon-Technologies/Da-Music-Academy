@@ -6,32 +6,27 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
+  scroll-behavior: smooth;
 }
 
 :root {
   --green: #008d77;
+  --gold: #f6bc1c;
 }
 
 main {
-  /* background-color: #f1f1f1; */
-  background: url(/images/green-pattern.png);
-  position: relative;
-  z-index: -2;
-}
+  background: linear-gradient(
+      rgba(210, 210, 210, 0.3),
+      rgba(210, 210, 210, 0.3)
+    ),
+    url(/images/green-pattern.png);
 
-main::before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background-color: rgba(133, 133, 133, 0.15);
-  z-index: -1;
 }
 
 .page-container {
-    width: 100vw;
-    height: 100vh;
-    background-color: white;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
 }
 
 .page-cover {
@@ -46,6 +41,10 @@ main::before {
 }
 
 .top-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
   padding: 20px 2vw;
   display: flex;
   align-items: center;
@@ -68,21 +67,22 @@ main::before {
   transition: all 1s;
 }
 
-.menu ul li.active {
-  background-color: white;
-}
-
 .menu ul li a {
   text-decoration: none;
   font-weight: 700;
   color: white;
+  cursor: pointer;
+}
+
+.menu ul li.active {
+  background-color: white;
 }
 
 .menu ul li.active a {
   color: #008d77;
 }
 
-.menu ul li:hover a {
+.menu ul li a:hover {
   color: #f6bc1c;
 }
 
@@ -134,7 +134,7 @@ main::before {
 }
 
 /* Programs */
-.programs {
+#programs {
   margin: 6vh 1% 0 1%;
   border-radius: 12px;
   padding: 2%;
@@ -143,11 +143,11 @@ main::before {
   flex-direction: column;
   align-items: center;
   background-color: white;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(0, 0, 0, 0.3);
-  /* background: url(/images/green-pattern.png); */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3),
+    -5px -5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.programs h1 {
+#programs h1 {
   font-size: 1.6rem;
   text-transform: uppercase;
   font-weight: 600;
@@ -155,7 +155,7 @@ main::before {
   color: var(--green);
 }
 
-.programs h2 {
+#programs h2 {
   margin-top: 12px;
   font-size: 2rem;
 }
@@ -225,18 +225,17 @@ main::before {
 }
 
 /* Instruments */
-.instruments {
+#instruments {
   height: 100vh;
   width: 100%;
   display: flex;
   padding: 6vh 1% 0 1%;
-  /* background-color: #f6bc1c; */
   flex-direction: row;
-  /* gap: 1px; */
+  gap: 8px;
   justify-content: center;
 }
 
-.instruments .content {
+#instruments .content {
   flex-basis: 50%;
   width: 100%;
   height: 100%;
@@ -246,24 +245,11 @@ main::before {
   flex-direction: column;
   justify-content: center;
   border-radius: 12px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3),
+    -5px -5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.instruments .grid {
-  flex-basis: 50%;
-  height: 100%;
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.instruments .grid img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.instruments h1 {
+#instruments h1 {
   font-size: 1.6rem;
   text-transform: uppercase;
   font-weight: 600;
@@ -271,12 +257,12 @@ main::before {
   color: var(--green);
 }
 
-.instruments h2 {
+#instruments h2 {
   margin-top: 1%;
   font-size: 2rem;
 }
 
-.instruments p {
+#instruments p {
   margin-top: 5%;
   font-size: 1.05rem;
 }
@@ -291,4 +277,158 @@ main::before {
   text-decoration: none;
   color: white;
   font-weight: 600;
+}
+
+#instruments .grid {
+  flex-basis: 50%;
+  height: 100%;
+  width: 100%;
+  padding: 2.5% 2.5%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  gap: 16px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.grid .item {
+  flex-basis: 30%;
+  height: 25%;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1), -1px -1px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.grid .item:hover {
+  height: 26%;
+  flex-basis: 31%;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3), -1px -1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.grid .item img {
+  height: 60px;
+}
+
+.grid .item h6 {
+  font-size: 1.25rem;
+  line-height: 0.5rem;
+  margin-top: 12px;
+  text-align: center;
+  /* font-family: "Tektur";
+  text-transform: uppercase; */
+}
+
+.grid .item p {
+  font-family: "Advent Pro";
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: var(--green);
+}
+
+
+
+
+
+
+
+
+
+
+/* Testimonials */
+#testimonials {
+  margin: 6vh 1% 0 1%;
+  border-radius: 12px;
+  padding: 2%;
+  padding-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3),
+    -5px -5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#testimonials h1 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: "Smooch Sans", sans-serif;
+  color: var(--green);
+}
+
+#testimonials h2 {
+  width: 30%;
+  margin: auto;
+  margin-top: 16px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.testi-list {
+  display: flex;
+  flex-direction: row;
+  margin-top: 48px;
+  width: 85%;
+  justify-content: center;
+  gap: 24px;
+}
+
+.testi {
+  flex-basis: 30%;
+  border-radius: 16px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1), -1px -1px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 40px 0;
+  align-items: center;
+}
+
+.testi img.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testi p.name {
+  width: fit-content;
+  margin-top:  20px;
+  font-weight: 600;
+  font-size: 1.35rem;
+  /* font-family: "Times New Roman", Times, serif; */
+  font-family: "Advent Pro";
+}
+
+.testi p.relation {
+  width: fit-content;
+  margin-top: 2px;
+  font-family: "Iceberg", sans-serif;
+  color: var(--green);
+  font-weight: 600;
+}
+
+.testi p.content {
+  margin-top: 20px;
+  font-family: "Poppins";
+  font-weight: 400;
+  width: 75%;
+  font-size: 0.9rem;
+  text-align: center;
+  color: rgb(89, 89, 89);
+}
+
+.testi img.quote {
+  margin-top: 24px;
+  height: 16px;
 }
