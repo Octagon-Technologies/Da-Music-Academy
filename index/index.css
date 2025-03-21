@@ -7,6 +7,7 @@
   box-sizing: border-box;
   font-family: "Quicksand", sans-serif;
   scroll-behavior: smooth;
+  outline-style:none;
 }
 
 :root {
@@ -26,7 +27,6 @@ body {
 .page-container {
   width: 100vw;
   height: 100vh;
-  /* background-color: white; */
 }
 
 .page-cover {
@@ -37,9 +37,8 @@ body {
   overflow: hidden;
   margin-left: auto;
   margin-right: auto;
-  /* background: var(--green); */
-  background: url(/images/large-guitar.jpg);
-  background-position: 0%;
+  background: url(/images/cover-photo.jpg);
+  background-position: center;
   background-size: cover;
   border-radius: 20px;
 }
@@ -64,7 +63,7 @@ body {
 }
 
 .top-bar #logo {
-  height: 90px;
+  height: 80px;
   margin-left: 2vw;
 }
 
@@ -424,6 +423,8 @@ body {
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
+  user-select: none; 
+  -webkit-user-select: none;
 }
 
 .grid .item {
@@ -511,7 +512,6 @@ body {
     font-size: 1rem;
   }
 }
-
 
 /* 
 
@@ -635,6 +635,7 @@ body {
   cursor: pointer;
   background: rgb(165, 165, 165);
   border-radius: 14px;
+  transition: all 1s;
 }
 
 .slider-dots li.active {
@@ -642,30 +643,37 @@ body {
   background: var(--green);
 }
 
-
 /* Responsive */
 @media screen and (max-width: 600px) {
   #gallery {
-  padding-bottom: 5%;
+    padding-bottom: 5%;
   }
 
   .gallery-container {
     margin-top: 8px;
+  max-width: 95vh;
+  }
+
+  .gallery-item.active {
+    width: 300px;
+  }
+
+  .gallery-item h6 {
+    font-size: 1.15rem;
   }
 
   .slider-dots {
-  margin-top: 14px;
+    margin-top: 14px;
   }
 
   .slider-dots li {
-    width: 15px;
-    height: 15px;
+    width: 14px;
+    height: 14px;
   }
 
   .slider-dots li.active {
-    width: 28px;
+    width: 26px;
   }
-
 }
 /*
 
@@ -792,4 +800,98 @@ body {
     margin-top: 12px;
     width: 85%;
   }
+}
+
+/* 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+/* Contacts */
+#contacts {
+  margin: 6vh 1% 2vh 1%;
+  border-radius: 12px;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3),
+    -5px -5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#contacts h1 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: "Smooch Sans", sans-serif;
+  color: var(--green);
+}
+
+#contacts .tabs {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 200px;
+  margin-top: 6px;
+}
+
+.contacts-header {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contacts-header img {
+  width: 60px;
+}
+
+.contacts-header p {
+  font-family: "Smooch Sans";
+  font-weight: 500;
+  font-size: 1.6rem;
+  margin-top: 12px;
+  width: 80%;
+  text-align: center;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+}
+
+.contacts-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.contacts-body .info h6 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-family: "Iceberg";
+  line-height: 1.2rem;
+  color: rgb(108, 108, 108);
+}
+
+.contacts-body .info a {
+  font-size: 1.1rem;
+  margin-top: 2px;
+  text-decoration: none;
+  line-height: 1.2rem;
+  color: black;
+  font-weight: 600;
 }
