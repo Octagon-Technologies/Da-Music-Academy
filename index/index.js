@@ -2,12 +2,14 @@ let openMenuBtn = document.getElementById("openMenuBtn");
 let closeMenuBtn = document.getElementById("closeMenuBtn");
 
 let menu = document.querySelector(".menu");
+let menuItems = document.querySelectorAll(".menu ul li");
 
 let sliderDots = document.querySelectorAll(".slider-dots li");
 let galleryList = document.querySelectorAll(".gallery-item");
 let activeIndex = 0;
 
 setupMenu();
+setupMenuItems();
 setupGallery();
 setUpGallerySliderDots();
 
@@ -20,12 +22,20 @@ function setupMenu() {
   };
 }
 
+function setupMenuItems() {
+  menuItems.forEach((element) => {
+    element.onclick = () => {
+      menu.style.right = "-225px";
+    };
+  });
+}
+
 function setupGallery() {
   galleryList.forEach((element, index) => {
     element.onclick = () => {
       activeIndex = index;
       refreshGallery();
-      refreshSliderDots()
+      refreshSliderDots();
     };
   });
 }
@@ -44,7 +54,7 @@ function setUpGallerySliderDots() {
   sliderDots.forEach((dot, index) => {
     dot.onclick = () => {
       activeIndex = index;
-      refreshGallery()
+      refreshGallery();
       refreshSliderDots();
     };
   });

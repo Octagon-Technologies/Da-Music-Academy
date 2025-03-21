@@ -79,7 +79,7 @@ body {
 .menu ul {
   display: flex;
   list-style-type: none;
-  gap: 1vw;
+  gap: 0.6vw;
 }
 
 .menu ul li {
