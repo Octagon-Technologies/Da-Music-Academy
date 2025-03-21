@@ -269,7 +269,8 @@ body {
 
 .program:hover {
   background-color: var(--green);
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35), -4px -4px 10px rgba(0, 0, 0, 0.35);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.35),
+    -4px -4px 10px rgba(0, 0, 0, 0.35);
 }
 
 .program:hover a {
@@ -464,9 +465,7 @@ body {
   color: var(--green);
 }
 
-
-
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   #instruments {
     flex-direction: column;
     gap: 5px;
@@ -514,7 +513,160 @@ body {
 }
 
 
+/* 
 
+
+
+
+
+
+
+
+
+
+
+
+*/
+/* Gallery */
+#gallery {
+  margin: 6vh 1% 0 1%;
+  border-radius: 12px;
+  padding: 2%;
+  padding-bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3),
+    -5px -5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#gallery h1 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-family: "Smooch Sans", sans-serif;
+  color: var(--green);
+}
+
+.gallery-container {
+  display: flex;
+  margin: auto;
+  margin-top: 16px;
+  width: fit-content;
+  flex-direction: row;
+  max-width: 1000px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 400px;
+  width: 10%;
+  transition: all 1s;
+  cursor: pointer;
+}
+
+.gallery-item::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  transition: all 1s;
+}
+
+.gallery-item.active {
+  width: 400px;
+}
+
+.gallery-item.active::before {
+  background: transparent;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.gallery-item .preview {
+  position: absolute;
+  rotate: 270deg;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-anchor: middle;
+  height: 100%;
+  align-content: center;
+  text-align: center;
+}
+
+.gallery-item.active .preview {
+  display: none;
+}
+
+.gallery-item h6 {
+  font-size: 1.3rem;
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-family: "Advent Pro";
+  letter-spacing: 01px;
+  color: white;
+  max-lines: 1;
+}
+
+.slider-dots {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.slider-dots li {
+  list-style-type: none;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  background: rgb(165, 165, 165);
+  border-radius: 14px;
+}
+
+.slider-dots li.active {
+  width: 36px;
+  background: var(--green);
+}
+
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  #gallery {
+  padding-bottom: 5%;
+  }
+
+  .gallery-container {
+    margin-top: 8px;
+  }
+
+  .slider-dots {
+  margin-top: 14px;
+  }
+
+  .slider-dots li {
+    width: 15px;
+    height: 15px;
+  }
+
+  .slider-dots li.active {
+    width: 28px;
+  }
+
+}
 /*
 
 
@@ -617,9 +769,8 @@ body {
   height: 16px;
 }
 
-
 /* Responsive */
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   #testimonials {
     padding: 4%;
   }
@@ -634,7 +785,7 @@ body {
   }
 
   .testi {
-    padding: 20px ;
+    padding: 20px;
   }
 
   .testi p.content {
