@@ -69,3 +69,10 @@ function refreshSliderDots() {
     }
   });
 }
+
+// Toggle campus active class on tap for mobile
+document.querySelectorAll(".campus").forEach((campus) => {
+  campus.addEventListener("click", () => {
+    campus.classList.toggle("active");
+  });
+});
